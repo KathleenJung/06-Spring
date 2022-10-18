@@ -147,3 +147,112 @@
 2022-10-18 09:28:50,065 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-10-18 09:28:50,066 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di1_xmlconfig_live\src\test\resources
 2022-10-18 09:42:01,071 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di2_annotation:spring_di2_annotation:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di2_annotation\pom.xml.
+2022-10-18 09:42:01,170 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring_di2_annotation/src
+2022-10-18 09:42:01,171 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /spring_di2_annotation/src/test/java because it overlaps with /spring_di2_annotation/src
+2022-10-18 09:42:01,237 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2022-10-18 09:42:01,265 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di2_annotation:spring_di2_annotation:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di2_annotation\pom.xml.
+2022-10-18 09:42:01,310 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring_di2_annotation/src
+2022-10-18 09:42:01,310 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /spring_di2_annotation/src/test/java because it overlaps with /spring_di2_annotation/src
+2022-10-18 09:42:01,332 [Worker-17: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2022-10-18 09:42:01,489 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:42:01,490 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 09:42:01,491 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:42:01,492 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 09:42:05,113 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:42:05,114 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 09:42:05,114 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:42:05,115 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 09:43:28,648 [Worker-4: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di1_xmlconfig:spring_di1_xmlconfig:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di2_annotation\pom.xml.
+2022-10-18 09:43:28,703 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:43:28,703 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 09:43:28,704 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:43:28,705 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 09:43:29,865 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:43:29,866 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 09:43:29,866 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 09:43:29,867 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:08:21,911 [Worker-17: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:21,911 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:08:21,912 [Worker-17: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:21,912 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:08:43,102 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:43,103 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di1_xmlconfig_live\src\main\resources
+2022-10-18 10:08:43,105 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:43,106 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di1_xmlconfig_live\src\test\resources
+2022-10-18 10:08:43,253 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:43,253 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:08:43,254 [Worker-20: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:08:43,254 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:11:46,043 [Worker-23: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:11:46,043 [Worker-23: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:11:46,044 [Worker-23: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:11:46,044 [Worker-23: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:12:59,116 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:12:59,116 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:12:59,117 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:12:59,117 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:14:06,904 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:14:06,905 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:14:06,905 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:14:06,906 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:15:46,254 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:15:46,254 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:15:46,255 [Worker-4: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:15:46,255 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:15:50,553 [Worker-24: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:15:50,554 [Worker-24: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:15:50,555 [Worker-24: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:15:50,555 [Worker-24: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:16:18,622 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:16:18,623 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:16:18,624 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:16:18,624 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:17:09,140 [Worker-21: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:17:09,141 [Worker-21: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:17:09,142 [Worker-21: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:17:09,143 [Worker-21: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:17:39,733 [Worker-22: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:17:39,734 [Worker-22: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:17:39,735 [Worker-22: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:17:39,735 [Worker-22: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:18:44,783 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:18:44,784 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:18:44,785 [Worker-25: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:18:44,785 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:19:16,388 [Worker-24: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:19:16,389 [Worker-24: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\main\resources
+2022-10-18 10:19:16,389 [Worker-24: Launching BoardController] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:19:16,390 [Worker-24: Launching BoardController] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di2_annotation\src\test\resources
+2022-10-18 10:37:48,264 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di3_javaconfig:spring_di3_javaconfig:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\pom.xml.
+2022-10-18 10:37:48,334 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring_di3_javaconfig/src
+2022-10-18 10:37:48,334 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /spring_di3_javaconfig/src/test/java because it overlaps with /spring_di3_javaconfig/src
+2022-10-18 10:37:48,377 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2022-10-18 10:37:48,392 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di3_javaconfig:spring_di3_javaconfig:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\pom.xml.
+2022-10-18 10:37:48,416 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /spring_di3_javaconfig/src
+2022-10-18 10:37:48,416 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /spring_di3_javaconfig/src/test/java because it overlaps with /spring_di3_javaconfig/src
+2022-10-18 10:37:48,434 [Worker-28: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2022-10-18 10:37:48,996 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:37:48,997 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:37:48,997 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:37:48,998 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
+2022-10-18 10:37:52,563 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:37:52,563 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:37:52,564 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:37:52,564 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
+2022-10-18 10:38:23,293 [Worker-26: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spring_di1_xmlconfig:spring_di1_xmlconfig:0.0.1-SNAPSHOT @ C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\pom.xml.
+2022-10-18 10:38:23,325 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:38:23,325 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:38:23,326 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:38:23,326 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
+2022-10-18 10:38:24,482 [Worker-27: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:38:24,482 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:38:24,483 [Worker-27: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:38:24,483 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
+2022-10-18 10:39:25,593 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:39:25,593 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:39:25,594 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:39:25,594 [Worker-28: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
+2022-10-18 10:39:44,863 [Worker-27: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:39:44,864 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\main\resources
+2022-10-18 10:39:44,865 [Worker-27: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-10-18 10:39:44,865 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\SSAFY\workspace\06-Spring\spring_di3_javaconfig\src\test\resources
