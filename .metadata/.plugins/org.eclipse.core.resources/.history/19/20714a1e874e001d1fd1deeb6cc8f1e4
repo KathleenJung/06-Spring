@@ -8,10 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ssafy.board.config.ApplicationConfig;
 import com.ssafy.board.model.BoardDto;
 import com.ssafy.board.model.service.BoardService;
 import com.ssafy.board.model.service.BoardServiceImpl;
@@ -22,9 +20,7 @@ public class BoardController {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
 		// TODO : xml or annotation의 spring 설정을 읽어온다.
-//		ApplicationContext context = new ClassPathXmlApplicationContext("com/ssafy/board/config/application.xml");
-		
-		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/ssafy/board/config/application.xml");
 		
 		BoardService boardService = context.getBean("boardService", BoardServiceImpl.class);
 		BoardDto boardDto = new BoardDto();
