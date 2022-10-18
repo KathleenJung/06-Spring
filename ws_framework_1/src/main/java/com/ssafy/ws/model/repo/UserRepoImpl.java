@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ssafy.ws.dto.User;
 
-
+@Repository
 public class UserRepoImpl implements UserRepo {
 
 	@Override

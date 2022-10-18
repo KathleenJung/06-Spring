@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ssafy.ws.dto.Book;
 
-
+@Repository
 public class BookRepoImpl implements BookRepo {
 
 	@Override

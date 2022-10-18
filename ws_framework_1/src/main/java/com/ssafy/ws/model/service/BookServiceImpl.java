@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import com.ssafy.ws.dto.Book;
 import com.ssafy.ws.model.repo.BookRepo;
 
-
+@Service
 public class BookServiceImpl implements BookService {
 	
+	@Autowired
 	private BookRepo bookRepo;
 	
 	
