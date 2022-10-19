@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,7 +43,7 @@ public class BoardController {
 	@GetMapping("/write")
 	public String write() {
 		logger.debug("write call");
-		return " ";
+		return "board/write";
 	}
 	
 	/**
@@ -54,12 +55,19 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@PostMapping("/write")
-//	public String write() throws Exception {
-////		logger.debug("write boardDto : {}", boardDto);
-
-//	
-//		return "";
-//	}
+	public String write(BoardDto boardDto, HttpSession session, RedirectAttributes redirectAttributes) throws Exception {
+		logger.debug("write boardDto : {}", boardDto);
+		
+		MemberDto memberDto = (MemberDto)session.getAttribute("userinfo");
+		boardDto.setUserId(memberDto.getUserId());
+		
+		int cnt = boardService.writeArticle(boardDto);
+		
+		redirectAttributes.addAttribute("pgno", 1);
+		redirectAttributes.addAttribute("key", "");
+		redirectAttributes.addAttribute("word", "");
+		return "redirect:list";
+	}
 	
 	
 	/**
@@ -69,15 +77,20 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@GetMapping("/list")
-	public ModelAndView list() throws Exception {
-//		logger.debug("list parameter pgno : {}", map.get("pgno"));
+	public ModelAndView list(@RequestParam Map<String, String> map) throws Exception {
+		System.out.println(map.toString());
+		
+		logger.debug("list parameter pgno : {}", map.get("pgno"));
 
-			
-			return null;
-
+		ModelAndView mav = new ModelAndView();
+		
+		List<BoardDto> articles = boardService.listArticle(map);
+		
+		mav.addObject("articles", articles);
+		mav.setViewName("board/list");
+		
+		return mav;
 	}
-	
-	
 	
 	/**
 	 * 요청한 articleNo 정보로 글의 상세 정보를 보여줍니다.
@@ -88,11 +101,14 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@GetMapping("/view")
-	public String view() throws Exception {
-//		logger.debug("view articleNo : {}", articleNo);
-
+	public String view(@RequestParam("articleno") int articleNo,  @RequestParam Map<String, String> map, Model model) throws Exception {
+		logger.debug("view articleNo : {}", articleNo);
 		
-		return "";
+		BoardDto boardDto = boardService.getArticle(articleNo);
+		
+		model.addAttribute("article", boardDto);
+		
+		return "board/view";
 	}
 	
 	/**
@@ -104,9 +120,14 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@GetMapping("/modify")
-	public String modify() throws Exception {
-
-		return "";
+	public String modify(@RequestParam("articleno") int articleNo,  @RequestParam Map<String, String> map, Model model) throws Exception {
+		logger.debug("modify call");
+		
+		BoardDto boardDto = boardService.getArticle(articleNo);
+		
+		model.addAttribute("article", boardDto);
+		
+		return "board/modify";
 	}
 	
 	/**
@@ -118,12 +139,16 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@PostMapping("/modify")
-//	public String modify() throws Exception {
-////		logger.debug("modify boardDto : {}", boardDto);
-////		boardService.modifyArticle(boardDto);
-//		
-//		return "";
-//	}
+	public String modify(BoardDto boardDto, @RequestParam Map<String, String> map, RedirectAttributes redirectAttributes) throws Exception {
+		logger.debug("modify boardDto : {}", boardDto);
+		
+		boardService.modifyArticle(boardDto);
+		
+		redirectAttributes.addAttribute("pgno", 1);
+		redirectAttributes.addAttribute("key", "");
+		redirectAttributes.addAttribute("word", "");
+		return "redirect:list";
+	}
 	
 	/**
 	 * articleNo에 해당하는 글을 삭제 처리합니다.
@@ -134,10 +159,13 @@ public class BoardController {
 	 * @throws Exception
 	 */
 	@GetMapping("/delete")
-	public String delete() throws Exception {
+	public String delete(@RequestParam("articleno") int articleNo, @RequestParam Map<String, String> map, RedirectAttributes redirectAttributes) throws Exception {
+		boardService.deleteArticle(articleNo);
 
-		
-		return "";
+		redirectAttributes.addAttribute("pgno", 1);
+		redirectAttributes.addAttribute("key", "");
+		redirectAttributes.addAttribute("word", "");
+		return "redirect:list";
 	}
 	
 }
