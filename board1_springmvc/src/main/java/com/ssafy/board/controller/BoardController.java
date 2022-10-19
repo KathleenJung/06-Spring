@@ -144,9 +144,8 @@ public class BoardController {
 		
 		boardService.modifyArticle(boardDto);
 		
+		redirectAttributes.addAllAttributes(map);
 		redirectAttributes.addAttribute("pgno", 1);
-		redirectAttributes.addAttribute("key", "");
-		redirectAttributes.addAttribute("word", "");
 		return "redirect:list";
 	}
 	
@@ -162,9 +161,8 @@ public class BoardController {
 	public String delete(@RequestParam("articleno") int articleNo, @RequestParam Map<String, String> map, RedirectAttributes redirectAttributes) throws Exception {
 		boardService.deleteArticle(articleNo);
 
+		redirectAttributes.addAllAttributes(map);
 		redirectAttributes.addAttribute("pgno", 1);
-		redirectAttributes.addAttribute("key", "");
-		redirectAttributes.addAttribute("word", "");
 		return "redirect:list";
 	}
 	
