@@ -1453,3 +1453,9 @@ Java Model Exception: Java Model Status [Unknown javadoc format for ModelAbstrac
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-19 16:37:47.623
 !MESSAGE Using platform encoding (utf-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-19 16:38:40.019
+!MESSAGE Using platform encoding (utf-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-19 16:38:40.021
+!MESSAGE Using platform encoding (utf-8 actually) to copy filtered resources, i.e. build is platform dependent!

@@ -69,7 +69,7 @@ public class MemberController {
 		logger.debug("memberDto info : {}", memberDto);
 		try {
 			int cnt = memberService.joinMember(memberDto);
-			
+
 			return "index";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,36 +89,48 @@ public class MemberController {
 	}
 
 	/**
-	 * 로그인 처리합니다.
-	 * session에 로그인한 유저 정보를 셋팅합니다. 
-	 * response에 세션 정보를 추가합니다.
-	 * 	 * 메소드명 중복으로 에러 발생하여 주석처리 되어 있으므로 주석 해제 후 구현해주세요.
+	 * 로그인 처리합니다. session에 로그인한 유저 정보를 셋팅합니다. response에 세션 정보를 추가합니다. * 메소드명 중복으로 에러
+	 * 발생하여 주석처리 되어 있으므로 주석 해제 후 구현해주세요.
+	 * 
 	 * @param map
 	 * @param model
 	 * @param session
 	 * @param response
 	 * @return
 	 */
-	
-
 	@PostMapping("/login")
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response) {
-		
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session,
+			HttpServletResponse response) {
+
 		logger.debug("map : {}", map.get("userid"));
-		
+
 		try {
 			MemberDto memberDto = memberService.loginMember(map);
-			
-			if(memberDto != null) {
+
+			if (memberDto != null) {
 				session.setAttribute("userinfo", memberDto);
+
+				String idsaver = map.get("saveid");
+				if ("ok".equals(idsaver)) { // 아이디 저장을 체크 했으면
+					Cookie cookie = new Cookie("ssafy_id", memberDto.getUserId());
+					cookie.setMaxAge(60 * 60 * 24 * 365 * 40); // 40년간 저장
+					response.addCookie(cookie);
+				} else { // 아이디 저장을 해제한 경우
+					// 요청에서 쿠키 받기
+					Cookie cookie = new Cookie("ssafy_id", memberDto.getUserId());
+					cookie.setMaxAge(0);
+					response.addCookie(cookie);
+				}
 			}
-		} catch (Exception e) {
+		} catch (
+
+		Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 			return "error/error";
 		}
-		
+
 		return "index";
 	}
 
@@ -132,7 +144,7 @@ public class MemberController {
 	public String logout(HttpSession session) {
 
 		session.invalidate();
-		
+
 		return "index";
 	}
 }
