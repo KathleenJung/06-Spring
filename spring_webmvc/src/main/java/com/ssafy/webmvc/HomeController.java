@@ -90,10 +90,18 @@ public class HomeController {
 		return "step03/form";
 	}
 	
+//	@RequestMapping(value = "/sendparam", method = RequestMethod.POST)
+//	public String parameterTest(ParameterDto parameterDto) {
+//		System.out.println("Parameter Test>> id = " + parameterDto.getUserid() + " name = " + parameterDto.getUsername() + " area = " + parameterDto.getFruit());
+//		return "step03/form";
+//	}
+	
 	@RequestMapping(value = "/sendparam", method = RequestMethod.POST)
-	public String parameterTest(ParameterDto parameterDto) {
+	public String parameterTest(ParameterDto parameterDto, Model model) {
 		System.out.println("Parameter Test>> id = " + parameterDto.getUserid() + " name = " + parameterDto.getUsername() + " area = " + parameterDto.getFruit());
-		return "step03/form";
+		model.addAttribute("data", parameterDto);
+//		forward
+		return "step03/result";
 	}
 
 }
