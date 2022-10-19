@@ -1,5 +1,6 @@
 package com.ssafy.ws.model.repo;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,26 +22,27 @@ public class UserRepoImpl implements UserRepo {
 
 	@Override
 	public User select(String id) throws SQLException {
-		User u = new User();
+		User user = new User();
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			ds.getConnection();
+			conn = ds.getConnection();
 
 			String sql = "SELECT id, name, pass, rec_id FROM user where id = ? ";
-			pstmt = ds.prepareStatement(sql.toString());
+			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				u.setId(rs.getString("id"));
-				u.setName(rs.getString("name"));
-				u.setPass(rs.getString("pass"));
-				u.setRecId(rs.getString("rec_id"));
+				user.setId(rs.getString("id"));
+				user.setName(rs.getString("name"));
+				user.setPass(rs.getString("pass"));
+				user.setRecId(rs.getString("rec_id"));
 			}
-			pstmt.executeUpdate();
 		} finally {
 			dbUtil.close(pstmt);
 		}
-		return u;
+		return user;
 	}
 
 }

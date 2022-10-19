@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 import com.ssafy.webmvc.model.HelloDto;
 import com.ssafy.webmvc.model.dao.HelloDao;
 
-
+@Service
 public class HelloServiceImpl implements HelloService {
 	
+	@Autowired
 	private HelloDao helloDao;
 	
 	@Override

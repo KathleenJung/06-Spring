@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class HelloDaoImpl implements HelloDao {
 
 	@Override
