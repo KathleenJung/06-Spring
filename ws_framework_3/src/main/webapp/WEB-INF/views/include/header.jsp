@@ -5,19 +5,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%--절대경로를 쉽게 사용하기 위해 session에 root를 key로 컨텍스트 루트 경로를 저장해둔다. --%>
-<c:set value="${pageContext.request.contextPath }" scope="session" var="root"></c:set>
+<c:set value="${pageContext.request.contextPath }" scope="session"
+	var="root"></c:set>
 
 <%-- bootstrap 관련 코드를 등록한다. --%>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
 <%-- 프로젝트에서 정의한 CSS를 참조할 때 resources 경로를 참조한다. --%>
 <link rel="stylesheet" href="${root }/resources/css/common.css">
 <style>
 </style>
 <div class="container">
-	<img src="${root }/resources/img/ssafy_logo.png" id="ssafy_logo">
+	<a href="http://localhost:8080/ws/">
+		<img src="${root }/resources/img/ssafy_logo.png" id="ssafy_logo">
+	</a>
 	<h1 class="display-4 text-center">도서 관리</h1>
 	<br>
 	<div class="text-right">
