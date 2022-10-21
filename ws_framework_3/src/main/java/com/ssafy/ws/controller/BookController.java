@@ -61,11 +61,18 @@ public class BookController {
 
 		return "regist_result";
 	}
+	
+	@GetMapping("/update")
+    public ModelAndView update(@RequestParam("isbn") String isbn) throws SQLException {
+        ModelAndView mav = new ModelAndView();
 
-	@GetMapping("update")
-	public String update() {
-		return "update";
-	}
+        Book book = bookService.select(isbn);
+
+        mav.addObject("book", book);
+        mav.setViewName("update");
+
+        return mav;
+    }
 
 	@PostMapping("update")
 	public String update(Book book) throws SQLException {
