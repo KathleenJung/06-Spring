@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 모델 관련 스프링 설정은 여기!(DAO, Service, Dto, AOP...) -->
+	<!-- Root Context: defines shared resources visible to all other web components -->	
+	
+	<context:component-scan base-package="com.ssafy.ws.model, com.ssafy.ws.util"></context:component-scan>
+
+
+	
+	<!-- DataSource Bean 등록 -->
+	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<!-- 본인 DB의 스키마명으로 변경 , id/pass 워드도 변경 필수 -->
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/ssafy_framework?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"/>
+		<property name="username" value="ssafy"/>
+		<property name="password" value="ssafy"/>
+	</bean>
+	
+</beans>
