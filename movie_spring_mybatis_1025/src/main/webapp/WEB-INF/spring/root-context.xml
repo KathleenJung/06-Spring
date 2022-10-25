@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- servie, dao 등 빈 등록 -->
+	<context:component-scan
+		base-package="com.ssafy.movie.service, com.ssafy.movie.mapper"></context:component-scan>
+
+	<!-- db 연결 설정 -->
+	<bean id="ds"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/ssafy"></property>
+	</bean>
+
+	<!-- sqlSessionFactoryBean 빈으로 등록 -->
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- db 연결 정보 -->
+		<property name="dataSource" ref="ds"></property>
+		<!-- mapper 파일 위치 정보 -->
+		<property name="mapperLocations"
+			value="classpath:mapper/*.xml"></property>
+		<property name="typeAliasesPackage" value="com.ssafy.*.dto"></property>
+	</bean>
+
+	<!-- mapper 파일로 사용될 인터페이스 스캔하여 빈 등록 -->
+	<mybatis-spring:scan
+		base-package="com.ssafy.*.mapper" />
+</beans>

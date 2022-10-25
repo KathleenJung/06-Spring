@@ -1,0 +1,53 @@
+- 감독 정보 등록
+insert into director
+values( #{id},#{name} ,#{age} ,#{winnerCount} )
+
+- 감독 정보 수정	
+update director
+set director_age = #{age},
+director_winnercount=#{winnerCount}
+where director_id = #{id}
+
+-감독 정보 삭제
+delete from director
+where director_id = #{id}
+
+- 감독 정보 가져오기(resultmap 사용 X)
+select director_id as id,
+	   director_name as name,
+	   director_age as age,
+	   director_winnercount as winnerCount
+from   director
+where  director_id = #{id}
+
+- 감독 목록 가져오기(resultmap 사용X)
+select director_id as id,
+   director_name as name,
+   director_age as age,
+   director_winnercount as winnerCount
+from   director
+- - 감독 정보 가져오기(resultmap 사용)
+select *
+from   director
+where  director_id = #{id}
+	
+
+- 감독 목록 가져오기(resultmap 사용)
+select *
+from   director
+
+- 선택한 감독 정보를 영화 리스트와 함께 보여주기
+select d.director_id, d.director_name,d.director_age, d.director_winnerCount,
+		m.movie_id,m.movie_title,m.movie_year
+from	director d
+left join	movie m on (d.director_id = m.director_id)
+where	d.director_id = #{id}
+
+- 감독 이름 or 나이로 검색
+select *
+from director
+
+director_name like concat('%',#{name},'%')
+
+and director_age>= #{age, jdbcType=NUMERIC}
+
