@@ -120,6 +120,26 @@ public class BoardController {
 //			return mav;
 //		}
 	}
+	
+	@GetMapping("/myBoard")
+	public ModelAndView boardList(@RequestParam Map<String, String> map, HttpSession session) throws Exception {
+		logger.debug("list parameter pgno : {}", map.get("pgno"));
+		ModelAndView mav = new ModelAndView();
+//		try {
+		MemberDto loginUser = (MemberDto)(session.getAttribute("userinfo"));
+		String userId = loginUser.getUserId();
+		map.put("userId", userId);
+		List<BoardDto> list = boardService.listMyArticle(map);
+		PageNavigation pageNavigation = boardService.makePageNavigation(map);
+		mav.addObject("articles", list);
+		mav.addObject("navigation", pageNavigation);
+		mav.addObject("pgno", map.get("pgno"));
+		mav.addObject("key", map.get("key"));
+		mav.addObject("word", map.get("word"));
+		mav.setViewName("board/myList");
+		return mav;
+
+	}
 
 	@GetMapping("/view")
 	public String view(@RequestParam("articleno") int articleNo, @RequestParam Map<String, String> map, Model model)

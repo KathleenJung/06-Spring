@@ -18,6 +18,9 @@
               <button type="button" id="btn-mv-register" class="btn btn-outline-primary btn-sm">
                 글쓰기
               </button>
+              <button type="button" id="btn-mv-myBoard" class="btn btn-outline-primary btn-sm">
+                내 글
+              </button>
             </div>
             <div class="col-md-5 offset-5">
               <form class="d-flex" id="form-search" action="">
@@ -98,6 +101,12 @@
       document.querySelector("#btn-mv-register").addEventListener("click", function () {
     	  let form = document.querySelector("#form-param");
         form.setAttribute("action", "${root}/board/write");
+        form.submit();
+      });
+      
+      document.querySelector("#btn-mv-myBoard").addEventListener("click", function () {
+    	  let form = document.querySelector("#form-param");
+        form.setAttribute("action", "${root}/board/myBoard");
         form.submit();
       });
       

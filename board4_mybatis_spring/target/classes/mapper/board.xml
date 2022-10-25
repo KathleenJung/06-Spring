@@ -60,6 +60,16 @@
 		limit #{start}, #{listsize}
 	</select>
 	
+	<select id="listMyArticle" parameterType="map" resultMap="article">
+		select b.article_no, b.user_id, b.subject, b.content, b.hit, b.register_time, m.user_name
+		from board b, members m 
+		where b.user_id = m.user_id
+		and m.user_id = #{userId}
+		<include refid="search"></include>
+		order by b.article_no desc
+		limit #{start}, #{listsize}
+	</select>
+	
 	<select id="getTotalArticleCount" parameterType="map" resultType="int">
 		select count(article_no)
 		from board

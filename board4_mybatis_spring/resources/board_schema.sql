@@ -53,7 +53,10 @@ CREATE TABLE IF NOT EXISTS `ssafyweb`.`board` (
   INDEX `board_to_members_user_id_fk` (`user_id` ASC) VISIBLE,
   CONSTRAINT `board_to_members_user_id_fk`
     FOREIGN KEY (`user_id`)
-    REFERENCES `ssafyweb`.`members` (`user_id`))
+    REFERENCES `ssafyweb`.`members` (`user_id`)
+    on delete cascade
+    on update cascade
+)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
@@ -80,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `ssafyweb`.`memo` (
   CONSTRAINT `memo_to_member_user_id_fk`
     FOREIGN KEY (`user_id`)
     REFERENCES `ssafyweb`.`members` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE cascade
+    ON UPDATE cascade)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
@@ -103,8 +106,8 @@ CREATE TABLE IF NOT EXISTS `ssafyweb`.`file_info` (
   CONSTRAINT `file_info_to_board_article_no_fk`
     FOREIGN KEY (`article_no`)
     REFERENCES `ssafyweb`.`board` (`article_no`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE cascade
+    ON UPDATE cascade)
 ENGINE = InnoDB;
 
 

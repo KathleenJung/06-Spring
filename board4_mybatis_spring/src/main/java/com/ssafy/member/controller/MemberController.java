@@ -1,5 +1,6 @@
 package com.ssafy.member.controller;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -24,11 +25,11 @@ import com.ssafy.member.model.service.MemberService;
 @Controller
 @RequestMapping("/user")
 public class MemberController {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
+
 	private final MemberService memberService;
-	
+
 	@Autowired
 	public MemberController(MemberService memberService) {
 		super();
@@ -39,12 +40,7 @@ public class MemberController {
 	public String join() {
 		return "user/join";
 	}
-	
-	@GetMapping("/mypage")
-	public String mypage(@PathVariable("id") String userId) {
-		return "user/join";
-	}
-	
+
 	@GetMapping("/{userid}")
 	@ResponseBody
 	public String idCheck(@PathVariable("userid") String userId) throws Exception {
@@ -52,7 +48,7 @@ public class MemberController {
 		int cnt = memberService.idCheck(userId);
 		return cnt + "";
 	}
-	
+
 	@PostMapping("/join")
 	public String join(MemberDto memberDto, Model model) {
 		logger.debug("memberDto info : {}", memberDto);
@@ -65,25 +61,26 @@ public class MemberController {
 			return "error/error";
 		}
 	}
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "user/login";
 	}
-	
+
 	@PostMapping("/login")
-	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session, HttpServletResponse response) {
+	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session,
+			HttpServletResponse response) {
 		logger.debug("map : {}", map.get("userid"));
 		try {
 			MemberDto memberDto = memberService.loginMember(map);
 			logger.debug("memberDto : {}", memberDto);
-			if(memberDto != null) {
+			if (memberDto != null) {
 				session.setAttribute("userinfo", memberDto);
-				
+
 				Cookie cookie = new Cookie("ssafy_id", map.get("userid"));
 				cookie.setPath("/board");
-				if("ok".equals(map.get("saveid"))) {
-					cookie.setMaxAge(60*60*24*365*40);
+				if ("ok".equals(map.get("saveid"))) {
+					cookie.setMaxAge(60 * 60 * 24 * 365 * 40);
 				} else {
 					cookie.setMaxAge(0);
 				}
@@ -99,11 +96,38 @@ public class MemberController {
 			return "error/error";
 		}
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}
-}
 
+	@GetMapping("/info")
+	public String memberInfo(Model model, HttpSession session) throws SQLException {
+		MemberDto loginUser = (MemberDto) session.getAttribute("userinfo");
+		String userId = loginUser.getUserId();
+		MemberDto memberDto = memberService.getMember(userId);
+
+		model.addAttribute("loginUser", memberDto);
+
+		return "user/mypage";
+	}
+
+	@PostMapping("/update")
+	public String updateMember(MemberDto memberDto, HttpSession session) throws SQLException {
+		memberService.updateMember(memberDto);
+
+		session.invalidate();
+		return "index";
+	}
+
+	@PostMapping("/delete")
+	public String deleteMember(MemberDto memberDto, HttpSession session) throws SQLException {
+		memberService.deleteMember(memberDto.getUserId());
+
+		session.invalidate();
+		return "index";
+	}
+
+}
