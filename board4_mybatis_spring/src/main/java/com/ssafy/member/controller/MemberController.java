@@ -40,6 +40,11 @@ public class MemberController {
 		return "user/join";
 	}
 	
+	@GetMapping("/mypage")
+	public String mypage(@PathVariable("id") String userId) {
+		return "user/join";
+	}
+	
 	@GetMapping("/{userid}")
 	@ResponseBody
 	public String idCheck(@PathVariable("userid") String userId) throws Exception {
