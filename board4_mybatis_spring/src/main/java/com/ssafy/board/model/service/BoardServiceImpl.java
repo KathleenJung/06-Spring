@@ -27,9 +27,11 @@ public class BoardServiceImpl implements BoardService {
 	@Transactional
 	public int writeArticle(BoardDto boardDto) throws Exception {
 		boardMapper.writeArticle(boardDto);
-		if(boardDto.getFileInfos() != null) {
+		
+		if (boardDto.getFileInfos() != null) {
 			boardMapper.registerFile(boardDto);
 		}
+		
 		return 1;
 	}
 
@@ -37,7 +39,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardDto> listArticle(Map<String, String> map) throws Exception {
 		Map<String, Object> param = new HashMap<String, Object>();
 		String key = map.get("key");
-		if("userid".equals(key))
+		if ("userid".equals(key))
 			key = "b.user_id";
 		param.put("key", key == null ? "" : key);
 		param.put("word", map.get("word") == null ? "" : map.get("word"));
@@ -47,6 +49,23 @@ public class BoardServiceImpl implements BoardService {
 		param.put("listsize", SizeConstant.LIST_SIZE);
 
 		return boardMapper.listArticle(param);
+	}
+	
+	@Override
+	public List<BoardDto> listMyArticle(Map<String, String> map) throws Exception {
+		Map<String, Object> param = new HashMap<String, Object>();
+		String key = map.get("key");
+		if ("userid".equals(key))
+			key = "b.user_id";
+		param.put("key", key == null ? "" : key);
+		param.put("word", map.get("word") == null ? "" : map.get("word"));
+		int pgNo = Integer.parseInt(map.get("pgno") == null ? "1" : map.get("pgno"));
+		int start = pgNo * SizeConstant.LIST_SIZE - SizeConstant.LIST_SIZE;
+		param.put("userId", map.get("userId"));
+		param.put("start", start);
+		param.put("listsize", SizeConstant.LIST_SIZE);
+
+		return boardMapper.listMyArticle(param);
 	}
 
 	@Override
@@ -61,7 +80,7 @@ public class BoardServiceImpl implements BoardService {
 		pageNavigation.setNaviSize(naviSize);
 		Map<String, Object> param = new HashMap<String, Object>();
 		String key = map.get("key");
-		if("userid".equals(key))
+		if ("userid".equals(key))
 			key = "user_id";
 		param.put("key", key == null ? "" : key);
 		param.put("word", map.get("word") == null ? "" : map.get("word"));
@@ -96,6 +115,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	@Transactional
 	public void deleteArticle(int articleNo) throws Exception {
+		boardMapper.deleteFile(articleNo);
 		boardMapper.deleteArticle(articleNo);
 	}
 
