@@ -42,8 +42,22 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<MemberDto> listMember(Map<String, Object> map) throws Exception {
-		// TODO Auto-generated method stub
 		return memberMapper.listMember(map);
+	}
+
+	@Override
+	public void deleteMember(String userId) throws Exception {
+		memberMapper.deleteMember(userId);
+	}
+
+	@Override
+	public MemberDto getMember(String userId) throws Exception {
+		return memberMapper.getMember(userId);
+	}
+
+	@Override
+	public void modifyMember(MemberDto memberDto) throws Exception {
+		memberMapper.modifyMember(memberDto);
 	}
 
 }

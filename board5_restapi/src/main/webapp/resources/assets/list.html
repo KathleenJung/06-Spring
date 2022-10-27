@@ -36,14 +36,25 @@
             <div class="col-md-5 offset-5">
               <form class="d-flex" id="form-search" action="">
                 <input type="hidden" name="pgno" value="1" />
-                <select class="form-select form-select-sm ms-5 me-1 w-50" id="skey" name="key" aria-label="검색조건">
+                <select
+                  class="form-select form-select-sm ms-5 me-1 w-50"
+                  id="skey"
+                  name="key"
+                  aria-label="검색조건"
+                >
                   <option value="" selected>검색조건</option>
                   <option value="userid">아이디</option>
                   <option value="username">이름</option>
                   <option value="emaildomain">이메일도메인</option>
                 </select>
                 <div class="input-group input-group-sm">
-                  <input type="text" class="form-control" id="sword" name="word" placeholder="검색어..." />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="sword"
+                    name="word"
+                    placeholder="검색어..."
+                  />
                   <button id="btn-search" class="btn btn-dark" type="button">검색</button>
                 </div>
               </form>
@@ -89,7 +100,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><mark class="purple">회원 등록</mark></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <div class="mb-3">
@@ -107,7 +123,12 @@
             </div>
             <div class="mb-3">
               <label for="pwdcheck" class="form-label">비밀번호확인 : </label>
-              <input type="password" class="form-control" id="pwdcheck" placeholder="비밀번호확인..." />
+              <input
+                type="password"
+                class="form-control"
+                id="pwdcheck"
+                placeholder="비밀번호확인..."
+              />
             </div>
             <div class="mb-3">
               <label for="emailid" class="form-label">이메일 : </label>
@@ -125,10 +146,17 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="btn-join" class="btn btn-outline-primary" data-bs-dismiss="modal">
+            <button
+              type="button"
+              id="btn-join"
+              class="btn btn-outline-primary"
+              data-bs-dismiss="modal"
+            >
               회원가입
             </button>
-            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+              닫기
+            </button>
           </div>
         </div>
       </div>
@@ -147,7 +175,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><mark class="purple">회원 정보</mark></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <table class="table table-bordered">
@@ -196,9 +229,126 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      let root ="/board";
+      let root = "/board";
 
-      fetch(`${root}/admin/user`).then((response) => response.json()).then((data) => console.log(data));
+      // 회원 목록
+      fetch(`${root}/admin/user`)
+        .then((response) => response.json())
+        .then((data) => makeList(data));
+
+      // 회원 등록
+      document.querySelector("#btn-join").addEventListener("click", function() {
+        let registerInfo = {
+          userId: document.querySelector("#userid").value,
+          userName: document.querySelector("#username").value,
+          userPwd: document.querySelector("#userpwd").value,
+          emailId: document.querySelector("#emailid").value,
+          emailDomain: document.querySelector("#emaildomain").value,
+        };
+        let config = {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(registerInfo),
+        };
+        fetch(`${root}/admin/user`, config)
+          .then((response) => response.json())
+          .then((data) => makeList(data));
+      });
+
+      // 회원 상세 정보
+      function userView(el) {
+        var modal = new bootstrap.Modal(document.getElementById('userViewModal'), {
+          backdrop: true,
+          keyboard: false,
+        });
+        let id = el.getAttribute("data-id");
+        fetch(`${root}/admin/user/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+        document.querySelector("#vid").innerText = data.userId;
+        document.querySelector("#vname").innerText = data.userName;
+        document.querySelector("#vemail").innerText = data.emailId + "@" + data.emailDomain;
+        document.querySelector("#vjoindate").innerText = data.joinDate;
+        modal.show();
+          });
+      }
+
+      // 수정 페이지 보기
+      function viewModify(el) {
+        let id = el.parentNode.parentNode.getAttribute("data-id");
+        document.querySelector(`#view_${id}`).setAttribute("style", "display: none;");
+        document.querySelector(`#mview_${id}`).setAttribute("style", "display: ;");
+      }
+
+      // 수정 페이지 닫기
+      function closeModify(el) {
+        let id = el.parentNode.parentNode.getAttribute("data-id");
+        document.querySelector(`#view_${id}`).setAttribute("style", "display: ;");
+        document.querySelector(`#mview_${id}`).setAttribute("style", "display: none;");
+      }
+
+      function userModify(el) {
+        let id = el.parentNode.parentNode.getAttribute("data-id");
+        let pwd = document.querySelector(`#userpwd${id}`).value;
+        let email = document.querySelector(`#email${id}`).value.split("@");
+        let modifyInfo = {
+          userId: id,
+          userPwd: pwd,
+          emailId: email[0],
+          emailDomain: email[1],
+        };
+        let config = {
+          method: "PUT",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(modifyInfo),
+        };
+        fetch(`${root}/admin/user`, config)
+          .then((response) => response.json())
+          .then((data) => makeList(data));
+      }
+
+      // 회원 정보 삭제
+      function deleteUser(el) {
+        let id = el.parentNode.parentNode.getAttribute("data-id");
+        let config = {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        };
+        fetch(`${root}/admin/user/${id}`, config)
+          .then((response) => response.json())
+          .then((data) => makeList(data));
+      }
+
+      function makeList(users) {
+        let tbody = ``;
+        users.forEach(function (user) {
+          tbody += `
+          <tr id="view_${user.userId}" class="view text-center" data-id="${user.userId}" ondblclick="userView(this)">
+            <td>${user.userId}</td>
+            <td>${user.userPwd}</td>
+            <td>${user.userName}</td>
+            <td>${user.emailId}@${user.emailDomain}</td>
+            <td>${user.joinDate}</td>
+            <td>
+              <button type="button" class="modifyViewBtn btn btn-outline-primary btn-sm" onclick="viewModify(this)">수정</button>
+              <button type="button" class="deleteBtn btn btn-outline-danger btn-sm" onclick="deleteUser(this)">삭제</button>
+            </td>
+          </tr>
+          <tr id="mview_${user.userId}" data-id="${user.userId}" style="display: none;" class="text-center">
+            <td>${user.userId}</td>
+            <td><input type="text" name="userpwd" id="userpwd${user.userId}" value="${user.userPwd}"></td>
+            <td>${user.userName}</td>
+            <td><input type="text" name="email" id="email${user.userId}" value="${user.emailId}@${user.emailDomain}"></td>
+            <td>${user.joinDate}</td>
+            <td>
+              <button type="button" class="modifyBtn btn btn-primary btn-sm" onclick="userModify(this)">수정</button>
+              <button type="button" class="cancelBtn btn btn-danger btn-sm" onclick="closeModify(this)">취소</button>
+            </td>
+          </tr>
+      `;
+        });
+        document.querySelector("#userlist").innerHTML = tbody;
+      }
     </script>
   </body>
 </html>
