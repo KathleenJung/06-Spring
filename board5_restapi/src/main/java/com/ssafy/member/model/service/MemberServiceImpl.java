@@ -1,5 +1,6 @@
 package com.ssafy.member.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,12 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDto loginMember(Map<String, String> map) throws Exception {
 //		return sqlSession.getMapper(MemberMapper.class).loginMember(map);
 		return memberMapper.loginMember(map);
+	}
+
+	@Override
+	public List<MemberDto> listMember(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return memberMapper.listMember(map);
 	}
 
 }

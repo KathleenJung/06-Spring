@@ -8,6 +8,13 @@
 		<result column="user_id" property="userId"/>
 		<result column="user_name" property="userName"/>
 	</resultMap>
+	
+	<resultMap type="memberDto" id="memberAll" extends="member">
+		<result column="user_password" property="userPwd"/>
+		<result column="email_id" property="emailId"/>
+		<result column="email_domain" property="emailDomain"/>
+		<result column="join_date" property="joinDate"/>
+	</resultMap>
 
 	<select id="idCheck" parameterType="String" resultType="int">
 		select count(user_id)
@@ -24,6 +31,12 @@
 		select user_id, user_name
 		from members
 		where user_id = #{userid} and user_password = #{userpwd}
+	</select>
+	
+	<select id="listMember" parameterType="map" resultMap="memberAll">
+		select user_id, user_name, user_password, email_id, email_domain, join_date
+		from members
+		order by join_date
 	</select>
 	
 </mapper>

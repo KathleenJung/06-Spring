@@ -100,5 +100,10 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@GetMapping("/list")
+	public String list(HttpSession session) {
+		return "redirect:/assets/list.html";
+	}
 }
 
