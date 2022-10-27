@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST 방식 이해하기</title>
+</head>
+<body>
+	<div>
+		<a href="#1" onclick="test1()">1. 문자열 응답받기</a>
+	</div>
+	<div>
+		<a href="#2" onclick="test2()">2. Member 응답받기</a>
+	</div>
+	<div>
+		<a href="#3" onclick="test3()">3. List<Member> 응답받기</a>
+	</div>
+
+	<script>
+	const root = "/rest";
+	function test1() {
+		fetch(`${root}/rest2/test1`)
+		.then(response => response.text())
+		.then(data => {
+			alert("서버에서 보내온 데이터 : " + data);
+		});
+	}
+	
+	function test2() {
+		fetch(`${root}/rest2/test2`)
+		.then(response => response.text())
+		.then(data => {
+			console.log(typeof data);
+			console.log(data)
+		});
+	}
+	
+	function test3() {
+		fetch(`${root}/rest2/test3`)
+		.then(response => response.json())
+		.then(data => {
+			console.log(data)
+		});
+	}
+	</script>	
+</body>
+</html>

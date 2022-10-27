@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST 방식 이해하기</title>
+</head>
+<body>
+	<div>
+		<a href="#1" onclick="requestFetch('get')">GET 요청</a>
+	</div>
+	<div>
+		<a href="#2" onclick="requestFetch('post')">POST 요청</a>
+	</div>
+	<div>
+		<a href="#3" onclick="requestFetch('put')">PUT 요청</a>
+	</div>
+	<div>
+		<a href="#4" onclick="requestFetch('post')">DELETE 요청</a>
+	</div>
+	<script>
+	const root = "/rest";
+	function requestFetch(method) {
+		const config = {
+		    method: method
+		};
+		fetch(`${root}/rest3/test`, config)
+		.then(response => response.text())
+		.then(data => {
+			alert("서버 응답 결과 : " + data);
+		});
+	}
+	</script>	
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST 방식 이해하기</title>
+</head>
+<body>
+	<div>
+		<a href="#1" onclick="test1()">PathVariable 요청</a>
+	</div>
+	<div>
+		<a href="#1" onclick="test2()">Member 보내고 받기</a>
+	</div>
+	<div>
+		<a href="#1" onclick="test3()">ResponseEntity</a>
+	</div>
+	<div>
+		<form name="f">
+			<input type="text" name="id" value="ssafy" />
+			<input type="text" name="name" value="싸피" />
+			<input type="text" name="email" value="ssafy@ssafy.com" />
+		</form>
+	</div>
+	<script>
+		const root = "/rest";
+		
+		function test1() {
+			fetch(`${root}/rest4/test1/ssafy`)
+			.then(response => response.text())
+			.then(data => {
+				alert("서버 응답 결과 : " + data);
+			});
+		}
+
+		function test2() {
+			let data = {
+				id: f.id.value,
+				name: f.name.value,
+				email: f.email.value
+			};
+			fetch(`${root}/rest4/test2`, {
+				method: "POST", 
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+			});
+		}
+		function test3() {
+			let data = {
+				id: f.id.value,
+				name: f.name.value,
+				email: f.email.value
+			};
+			fetch(`${root}/rest4/test3`, {
+				method: "POST", 
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(data)
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+			});
+		}
+	</script>	
+</body>
+</html>
