@@ -19,7 +19,7 @@
 	const root = "/rest";
 	function test1() {
 		fetch(`${root}/rest1/test1`)
-		.then(response => response.text())
+		.then(response => response.json())
 		.then(data => {
 			alert("서버에서 보내온 데이터 : " + data);
 		});
@@ -27,7 +27,7 @@
 	
 	function test2() {
 		fetch(`${root}/rest1/test2`)
-		.then(response => response.text())
+		.then(response => response.json())
 		.then(data => {
 			console.log(typeof data);
 			console.log(data)
@@ -36,7 +36,11 @@
 	
 	function test3() {
 		// 작성해보기
-		
+		fetch(`${root}/rest1/test3`)
+		.then(response => response.json())
+		.then(data => {
+			console.dir(data)
+		});
 	}
 	</script>	
 </body>
