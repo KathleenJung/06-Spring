@@ -15,7 +15,7 @@ import lombok.ToString;
 @NoArgsConstructor		// 기본 생성자
 @AllArgsConstructor 	// 모든 변수를 사용하는 생성자
 @RequiredArgsConstructor// 특정 변수를 활용해서 생성자를 자동 생성
-@ToString
+@ToString 
 public class BoardDto {
 
 	@NonNull
