@@ -87,14 +87,26 @@ public class BookRestController {
 
 	@PutMapping("/book")
 	@ApiOperation(value = "Book 객체를 수정한다.", response = Integer.class)
-	public ResponseEntity<?> update(Book book, @RequestPart(required = false) MultipartFile file) {
-		return null;
+	public ResponseEntity<?> update(@RequestBody Book book, @RequestPart(required = false) MultipartFile file) {
+		bookService.update(book);
+		List<Book> books = bookService.selectAll();
+		if (books != null && !books.isEmpty()) {
+			return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
 	}
 
 	@DeleteMapping("/book/{isbn}")
 	@ApiOperation(value = "Book 객체를 삭제한다.", response = Integer.class)
 	public ResponseEntity<?> delete(@PathVariable String isbn) {
-		return null;
+		bookService.delete(isbn);
+		List<Book> books = bookService.selectAll();
+		if (books != null && !books.isEmpty()) {
+			return new ResponseEntity<List<Book>>(books, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
 	}
 
 	@GetMapping("/list")

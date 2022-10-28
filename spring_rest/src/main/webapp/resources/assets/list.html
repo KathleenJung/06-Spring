@@ -83,7 +83,8 @@
 				<div class="modal-body">
 					<div class="input-group mb-3">
 						<span class="input-group-text">도서번호</span> <input type="text"
-							id="misbn" name="isbn" class="form-control" placeholder="111-000-0000">
+							id="misbn" name="isbn" class="form-control"
+							placeholder="111-000-0000">
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text">도서명</span> <input type="text"
@@ -249,34 +250,35 @@
         document.querySelector(`#mview_${id}`).setAttribute("style", "display: none;");
       }
 
-      function userModify(el) {
+      function bookModify(el) {
         let id = el.parentNode.parentNode.getAttribute("data-id");
-        let pwd = document.querySelector(`#userpwd${id}`).value;
-        let email = document.querySelector(`#email${id}`).value.split("@");
+        let title = document.querySelector(`#title${id}`).value;
+        let author = document.querySelector(`#author${id}`).value;
+        let price = document.querySelector(`#price${id}`).value;
         let modifyInfo = {
-          userId: id,
-          userPwd: pwd,
-          emailId: email[0],
-          emailDomain: email[1],
+        		isbn: id,
+          title: title,
+          author: author,
+          price: price,
         };
         let config = {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(modifyInfo),
         };
-        fetch(`${root}/admin/user`, config)
+        fetch(`${root}/bookapi/book`, config)
           .then((response) => response.json())
           .then((data) => makeList(data));
       }
 
-      // 회원 정보 삭제
-      function deleteUser(el) {
+      //도서 정보 삭제
+      function deleteBook(el) {
         let id = el.parentNode.parentNode.getAttribute("data-id");
         let config = {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         };
-        fetch(`${root}/admin/user/${id}`, config)
+        fetch(`${root}/bookapi/book/${id}`, config)
           .then((response) => response.json())
           .then((data) => makeList(data));
       }
@@ -292,18 +294,15 @@
 							<td>${book.price}</td>
 							<td>
 								<button type="button" class="modifyViewBtn btn btn-outline-primary btn-sm" onclick="viewModify(this);">수정</button>
-								<button type="button" class="deleteBtn btn btn-outline-danger btn-sm" onclick="deleteUser(this);">삭제</button>
+								<button type="button" class="deleteBtn btn btn-outline-danger btn-sm" onclick="deleteBook(this);">삭제</button>
 							</td>
 						</tr>
 						<tr id="mview_${book.isbn}" data-id="${book.isbn}" style="display: none;" class="text-center">
-							<td>${book.isbn}</td>
-							<td><input type="text" name="title" id="title${book.title}" value="${book.title}"></td>
-							<td><input type="text" name="author" id="title${book.author}" value="${book.author}"></td>
-							<td><input type="text" name="price" id="title${book.price}" value="${book.price}"></td>
-							<td>${book.author}</td>
-							<td>${book.content}</td>
+							<td><input type="text" name="title" id="title${book.isbn}" value="${book.title}"></td>
+							<td><input type="text" name="author" id="author${book.isbn}" value="${book.author}"></td>
+							<td><input type="text" name="price" id="price${book.isbn}" value="${book.price}"></td>
 							<td>
-								<button type="button" class="modifyBtn btn btn-primary btn-sm" onclick="userModify(this);">수정</button>
+								<button type="button" class="modifyBtn btn btn-primary btn-sm" onclick="bookModify(this);">수정</button>
 								<button type="button" class="cancelBtn btn btn-danger btn-sm" onclick="closeModify(this);">취소</button>
 							</td>
 						</tr>

@@ -12,7 +12,7 @@
 
 	<update id="update" parameterType="Book">
 		update book set author = #{author}, title = #{title},
-		price = #{price}, content = #{content}, img = #{img}
+		price = #{price}
 		where isbn = #{isbn}
 	</update>
 	
