@@ -30,11 +30,4 @@ public class BoardDto {
 	private String registerTime;
 	private List<FileInfoDto> fileInfos;
 
-	@Override
-	public String toString() {
-		return "BoardDto [articleNo=" + articleNo + ", userId=" + userId + ", userName=" + userName + ", subject="
-				+ subject + ", content=" + content + ", hit=" + hit + ", registerTime=" + registerTime + ", fileInfos="
-				+ fileInfos + "]";
-	}
-
 }
